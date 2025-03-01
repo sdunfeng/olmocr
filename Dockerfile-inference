@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 nvidia/cuda:12.8.0-cudnn-runtime-ubuntu20.04
+FROM --platform=linux/amd64 nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu20.04
 
 RUN apt-get update -y && apt-get install -y software-properties-common \
     && add-apt-repository ppa:deadsnakes/ppa \
@@ -31,7 +31,7 @@ ADD --chmod=755 https://astral.sh/uv/install.sh /install.sh
 RUN /install.sh && rm /install.sh
 
 # Flash inference install sooner
-RUN /root/.local/bin/uv pip install --system flashinfer -i https://flashinfer.ai/whl/cu124/torch2.4/
+RUN /root/.local/bin/uv pip install --system flashinfer -i https://flashinfer.ai/whl/cu121/torch2.4/
 
 ENV PYTHONUNBUFFERED=1
 WORKDIR /root
