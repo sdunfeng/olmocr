@@ -31,7 +31,7 @@ ADD --chmod=755 https://astral.sh/uv/install.sh /install.sh
 RUN /install.sh && rm /install.sh
 
 # Flash inference install sooner
-RUN /root/.local/bin/uv pip install --system flashinfer-python -i https://flashinfer.ai/whl/cu124/torch2.4/
+RUN /root/.local/bin/uv pip install --system flashinfer -i https://flashinfer.ai/whl/cu124/torch2.4/
 
 ENV PYTHONUNBUFFERED=1
 WORKDIR /root
